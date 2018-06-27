@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sylva API Explorer</title>
+  <link href='css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/loopbackStyles.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='css/print.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='css/loopbackStyles.css' media='print' rel='stylesheet' type='text/css'/>
+  <script src='lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.slideto.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.wiggle.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+  <script src='lib/handlebars-4.0.5.js' type='text/javascript'></script>
+  <script src='lib/lodash.min.js' type='text/javascript'></script>
+  <script src='lib/backbone-min.js' type='text/javascript'></script>
+  <script src='swagger-ui.js' type='text/javascript'></script>
+  <script src='lib/highlight.9.1.0.pack.js' type='text/javascript'></script>
+  <script src='lib/jsoneditor.min.js' type='text/javascript'></script>
+  <script src='lib/marked.js' type='text/javascript'></script>
+
+  <!-- enabling this will enable oauth2 implicit scope support -->
+  <script src='lib/swagger-oauth.js' type='text/javascript'></script>
+
+  <!-- Init swagger UI. -->
+  <script src='lib/loadSwaggerUI.js' type="text/javascript"></script>
+  
+  <style type="text/css">
+    /*  Sylva styles  */
+    
+    /* Add *required property styling */
+    span.propName.required {
+        color:red;
+    }
+    span.propName.required::before {
+        content: "*";
+    }
+
+      /*Hide patch and head operations */
+     .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.patch{
+        display:none !important;
+     } 
+     .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.head{
+        display:none !important;
+     } 
+     
+     li#resource_devider {
+         padding: 30px 0px 20px 0;
+     }
+    .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 a {
+        color:#666666;
+    }
+    .swagger-section .swagger-ui-wrap .info_title, #resource_devider.info_title{
+        color: #fff;
+        background-color: #4D4D58;
+        padding: 10px;
+        /* padding-left: 20px; */
+        font-weight: 700;
+    }
+    
+    .sylva-img-logo {
+        height: 50px;
+        width: auto;
+        position: fixed;
+        margin-left: -70px;
+        margin-top: -10px;
+    }
+    
+    body #header {
+      background-color: #4D4D58 !important;
+    }
+    body > #header > .swagger-ui-wrap > form#api_selector > .input > a#explore {
+        background-color: #4D4D58 !important;
+        cursor:pointer;
+    }
+    body > #header > .swagger-ui-wrap > form#api_selector > .input > a#explore:hover {
+        background-color: #3f3f50  !important;
+    }
+    
+  </style>
+</head>
+
+<body class="swagger-section standalone">
+<div id='header'>
+    <div class="swagger-ui-wrap">
+        <a id="logo"><img class="sylva-img-logo" src="images/sylva_icon.png">Sylva API Explorer</a>
+        <form id='api_selector'>
+            <div class='input'>
+                <span class='accessTokenDisplay'>Token Not Set</span>
+                <input placeholder="accessToken" id="input_accessToken" name="accessToken" type="text"/>
+            </div>
+            <div class='input'><a id="explore" type="submit">Set Access Token</a></div>
+        </form>
+    </div>
+</div>
+
+<div class="contentWell">
+    <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+    <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+</div>
+</body>
+</html>
